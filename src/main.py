@@ -13,8 +13,8 @@ import colorama
 colorama.init(autoreset=True)
 
 
-handwritten_filepaths = ['../data/handwritten/list{}.txt'.format(i) for i in range(1, 23)]
-generated_filepaths = ['../data/generated/gen{}.txt'.format(i) for i in range(1, 23)]
+handwritten_filepaths = ['../data/handwritten/list{}.txt'.format(i) for i in range(1, 39)]
+generated_filepaths = ['../data/generated/gen{}.txt'.format(i) for i in range(1, 39)]
 
 KFULL = 1000
 
@@ -25,7 +25,7 @@ config = RouletteAnalyzer.generate_from_config(config)
 vals = list()
 vals.append(KFULL)
 for _ in range(1000):
-    l = Loader.random_sample(handwritten_filepaths, 150)
+    l = Loader.random_sample(handwritten_filepaths, 100)
     K = 0.1 * KFULL
     KFULL -= K
     K = Simulator.simulate_bubbles_and_progression(l, config, K)[-1]
